@@ -1,0 +1,19 @@
+{
+    "ProcessName": "farcry4",
+
+    "Priority": "High",
+
+    "UseSmartAffinity": true,
+
+    "WaitSecondsAfterLaunch": 30,
+
+    "EnableTimerResolution": true,
+
+    "ChangePowerPlan": false,
+
+    "EnableMemoryCleanup": false,
+
+    "MemoryCleanupIntervalSeconds": 120,
+
+    "LogToFile": false
+}
