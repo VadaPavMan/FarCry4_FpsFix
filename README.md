@@ -8,10 +8,10 @@ this mod fixes that by tuning how Windows schedules the game, without touching a
 
 ---
 
-## Before:
+## **Before** [Click On Image To Watch GamePlay Video] :
 [![Watch the video](screenshots/before.png)](https://youtu.be/vZfe1422wrM)
 
-## After:
+## **After** [Click On Image To Watch GamePlay Video]:
 [![Watch the video](screenshots/after.png)](https://youtu.be/5c7NeJk0m_I)
 
 
