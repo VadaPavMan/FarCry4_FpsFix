@@ -1,4 +1,4 @@
-# FarCry4-FpsFixMod
+# FarCry4 Fps Fix Mod 
 
 A lightweight performance optimizer for **Far Cry 4** on modern PCs.
 Far Cry 4 was built for 4-core CPUs in 2014 and does not scale well on modern hardware --
