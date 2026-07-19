@@ -1,4 +1,4 @@
-# Far Cry 4 Ultimate Enhancement Mod
+# Far Cry 4 Fps Fix Mod
 
 A complete fps enhancement mod for **Far Cry 4** that fixes the fps drop issue for modern systems, easy-to-install mod.
 
