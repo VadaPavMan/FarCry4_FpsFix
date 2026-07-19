@@ -77,18 +77,41 @@ $priorityMap = @{
 }
 
 
+function Get-CpuVendor {
+    param($cpu)
+
+    $name = "$($cpu.Manufacturer)"
+
+    if ($name -match "AMD") {
+        return "AMD"
+    } elseif ($name -match "Intel") {
+        return "Intel"
+    }
+
+    # Intel core profile By Default
+    return "Intel"
+}
+
 function Get-AffinityMask {
     param($cpu)
 
-    $physical      = [int]$cpu.NumberOfCores
-    $logical       = [int]$cpu.NumberOfLogicalProcessors
-    $threadsPerCore = [int]($logical / $physical)
+    $logical = [int]$cpu.NumberOfLogicalProcessors
+    $vendor  = Get-CpuVendor -cpu $cpu
 
-    $maxCore = [Math]::Min(5, $physical)
+    # Core indexes:
+    #   Intel cores: 0, 2, 4, 6
+    #   AMD cores: 2, 4, 6, 8
+    if ($vendor -eq "AMD") {
+        $coreIndexes = @(2, 4, 6, 8)
+    } else {
+        $coreIndexes = @(0, 2, 4, 6)
+    }
 
     $mask = [long]0
-    for ($i = 1; $i -lt $maxCore; $i++) {
-        $mask = $mask -bor (1L -shl ($i * $threadsPerCore))
+    foreach ($idx in $coreIndexes) {
+        if ($idx -lt $logical) {
+            $mask = $mask -bor (1L -shl $idx)
+        }
     }
 
     if ($mask -le 0) {
@@ -96,7 +119,11 @@ function Get-AffinityMask {
         $mask = $all -band (-bnot 1L)
     }
 
-    return [IntPtr][long]$mask
+    return @{
+        Mask        = [IntPtr][long]$mask
+        Vendor      = $vendor
+        CoreIndexes = $coreIndexes
+    }
 }
 
 function Invoke-MemoryTrim {
@@ -201,13 +228,17 @@ try {
 
 if ($cfg.UseSmartAffinity) {
     try {
-        $cpu  = Get-CimInstance Win32_Processor
-        $mask = Get-AffinityMask -cpu $cpu
+        $cpu    = Get-CimInstance Win32_Processor
+        $result = Get-AffinityMask -cpu $cpu
+        $mask   = $result.Mask
+
         foreach ($p in $proc) { $p.ProcessorAffinity = $mask }
-        $cores = [int]$cpu.NumberOfCores
-        $logical = [int]$cpu.NumberOfLogicalProcessors
-        $tpc = [int]($logical / $cores)
-        Log "Affinity set. Mask=$mask | CPU: $cores physical / $logical logical ($tpc per core) | Using physical cores 1-$([Math]::Min(4, $cores-1)) only (no HT siblings, no core 0)"
+
+        $cores      = [int]$cpu.NumberOfCores
+        $logical    = [int]$cpu.NumberOfLogicalProcessors
+        $coreList   = ($result.CoreIndexes -join ", ")
+        Log "CPU detected: $($result.Vendor) | $cores physical / $logical logical"
+        Log "Affinity set. Mask=$mask | Using $($result.Vendor) core profile: cores $coreList"
     } catch {
         Log "Could not set affinity: $_"
     }
