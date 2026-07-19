@@ -6,9 +6,9 @@ A complete fps enhancement mod for **Far Cry 4** that fixes the fps drop issue f
 
 ## Before / After
 
-[![Watch the video](screenshots/before.png)](https://youtu.be/vZfe1422wrM) — **Before**
+[![Watch the video](screenshots/before-3.png)](https://youtu.be/vZfe1422wrM) — **Before**
 
-[![Watch the video](screenshots/after.png)](https://youtu.be/5c7NeJk0m_I) — **After**
+[![Watch the video](screenshots/after-3.png)](https://youtu.be/5c7NeJk0m_I) — **After**
 
 *(Click either image to watch gameplay footage)*
 
