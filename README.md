@@ -4,6 +4,7 @@ A complete fps enhancement mod for **Far Cry 4** that fixes the fps drop issue f
 ---
 ## Note:
 I Have Also Made A New Easy To Use executable, [`FarCry4_FPSFix.exe`](executable/) that does the same thing but with less headache of installations and running. Just follow the [README.md](executable/README.md) & [INSTALL.md](executable/INSTALL.md) from the executable folder and you are good to go...
+
 ---
 
 ## Before / After
@@ -15,6 +16,10 @@ I Have Also Made A New Easy To Use executable, [`FarCry4_FPSFix.exe`](executable
 *(Click either image to watch gameplay footage)*
 
 ---
+
+## Tested This Mod On 2 Systems:
+- **Intel Core i5-10400F + GTX 1660 Ti:** FPS: Before: `69 to 75` & After: `115 to 124`.
+- **AMD Ryzen 7 5800X + RTX 4070:** FPS: Before: `110 to 122` & After: `195 to 208`.
 
 ## What's Included
 
