@@ -18,8 +18,8 @@ I Have Also Made A New Easy To Use executable, [`FarCry4_FPSFix.exe`](executable
 ---
 
 ## Tested This Mod On 2 Systems:
-- **Intel Core i5-10400F + GTX 1660 Ti:** FPS: Before: `69 to 75` & After: `115 to 124`.
-- **AMD Ryzen 7 5800X + RTX 4070:** FPS: Before: `110 to 122` & After: `195 to 208`.
+- **Intel Core i5-10400F + GTX 1660 Ti:** FPS: [Before: `69 to 75`](screenshots/before-3.png) & [After: `115 to 124`](screenshots/after-3.png).
+- **AMD Ryzen 7 5800X + RTX 4070:** FPS: [Before: `110 to 122`](screenshots/gtx1660ti-before.png) & [After: `195 to 208`](screenshots/gtx1660ti-after.png).
 
 ## What's Included
 
