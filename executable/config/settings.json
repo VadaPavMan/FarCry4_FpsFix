@@ -1,0 +1,12 @@
+{
+  "ProcessName": "farcry4;fc4",
+  "Priority": "High",
+  "AffinityMode": "VendorProfile",
+  "WaitSecondsAfterLaunch": 10,
+  "EnableMemoryCleanup": false,
+  "MemoryCleanupIntervalSeconds": 120,
+  "EnableTimerResolution": false,
+  "ChangePowerPlan": false,
+  "LogToFile": true,
+  "GraphicsProfile": "Balanced"
+}
