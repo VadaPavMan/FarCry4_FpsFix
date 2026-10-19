@@ -22,6 +22,12 @@ V2.0 combines the earlier V1 process-optimization approach with configuration-ha
 - Far Cry 4 for Windows.
 - Steam or Ubisoft Connect, depending on the launcher used.
 
+## Compilation:
+```
+   cmake -S . -B build -A x64
+   cmake --build build --config Release
+```
+
 ## Installation
 
 Download the precompiled Windows release from the project's GitHub Releases page. Extract the package into the Far Cry 4 game directory, then follow the platform-specific instructions in [`install.md`](install.md).
